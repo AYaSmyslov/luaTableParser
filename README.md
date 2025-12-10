@@ -53,16 +53,13 @@ int main()
 	// Lua initialization (lua.h)
 	lua_State* L = luaL_newstate();
 	std::string err;
-
-	if (L == nullptr)
+	if (!L)
 	{
 		std::cout << "cant open" << std::endl;
 		lua_close(L);
 		return -1;
 	}
-
 	luaL_openlibs(L);
-
 
 	// Initialize templated class (LuaTable.h)
 	LuaTable luaConfig(L);
@@ -95,7 +92,7 @@ int main()
 		std::cout << o << " ";
 	}
 
-	std::cout << std::endl;
+	std::cout << "}" << std::endl;
 
 	lua_close(L);
 
