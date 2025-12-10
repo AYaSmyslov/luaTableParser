@@ -24,7 +24,7 @@ int main()
 	lua_State* L = luaL_newstate();
 	std::string err;
 
-	if (L == nullptr)
+	if (!L)
 	{
 		std::cout << "cant open" << std::endl;
 		lua_close(L);
@@ -51,8 +51,6 @@ int main()
 		return -1;
 	}
 
-
-
 	std::cout << "Config:" << std::endl;
 	std::cout << "count: " <<  cfg.count << std::endl;
 	std::cout << "str: " << cfg.str << std::endl;
@@ -64,7 +62,7 @@ int main()
 		std::cout << o << " ";
 	}
 
-	std::cout << std::endl;
+	std::cout << "}" << std::endl;
 
 	lua_close(L);
 
